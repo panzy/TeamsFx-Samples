@@ -6,7 +6,7 @@ import {
   tokens,
 } from "@fluentui/react-components";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
@@ -16,6 +16,8 @@ import TermsOfUse from "./TermsOfUse";
 import Tab from "./Tab";
 import TabConfig from "./TabConfig";
 import { useTeams } from "@microsoft/teamsfx-react";
+import { AuthStart } from "./AuthStart";
+import { AuthResponse } from "./AuthResponse";
 
 /**
  * The main app which handles the initialization and routing
@@ -35,6 +37,8 @@ export default function App() {
     >
       <Router>
         <Routes>
+          <Route path="/oauthstart" element={<AuthStart/>} />
+          <Route path="/oauthresponse" element={<AuthResponse/>} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/termsofuse" element={<TermsOfUse />} />
           <Route path="/tab" element={<Tab />} />
